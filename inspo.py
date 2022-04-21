@@ -12,7 +12,7 @@ while 1:
     # body = (r.json()) # if response type was set to JSON, then you'll automatically have a JSON response here...
     
 
-    filename = random.choice(glob.glob("sources/*.json")) #change dir name to whatever
+    filename = random.choice(glob.glob("/home/pi/homeautomation/door/inspirational_quote_generator/sources/*.json")) #change dir name to whatever
     print("chose filename = ", filename)
     # # filename = 'sources/startup_quotes.json'
     with open(filename, 'r') as f:
@@ -35,8 +35,8 @@ while 1:
 
     # create the basic window/screen and a title/caption
     # default is a black background
-    screen = pg.display.set_mode((1028, 800))
-    # screen = pg.display.set_mode((0, 0), pg.FULLSCREEN)
+    # screen = pg.display.set_mode((1028, 800))
+    screen = pg.display.set_mode((0, 0), pg.FULLSCREEN)
     pg.display.set_caption("GET OFF THE COUCH")
     # pick a font you have and set its size
     original_font_size = 80
