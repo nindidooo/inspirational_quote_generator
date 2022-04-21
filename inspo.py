@@ -1,5 +1,5 @@
-import random
-import re
+import json
+import glob, random
 import pygame as pg
 import requests
 import textwrap
@@ -12,10 +12,6 @@ while 1:
     # body = (r.json()) # if response type was set to JSON, then you'll automatically have a JSON response here...
     
 
-    import json
-    print("HERE")
-
-    import glob, random
     filename = random.choice(glob.glob("sources/*.json")) #change dir name to whatever
     print("chose filename = ", filename)
     # # filename = 'sources/startup_quotes.json'
@@ -60,7 +56,7 @@ while 1:
     for i, l in enumerate(lines):
         screen.blit(myfont.render(l, 0, yellow), (x, y + fsize*i))
     # rotate screen round
-    # screen.blit(pg.transform.rotate(screen, 180), (0, 0))
+    screen.blit(pg.transform.rotate(screen, 180), (0, 0))
     # put the label object on the screen at point x=100, y=100
 
     # show the whole thing
@@ -72,4 +68,4 @@ while 1:
         if event.type == pg.QUIT:
             raise SystemExit
 
-    # time.sleep(20)
+    time.sleep(20)
