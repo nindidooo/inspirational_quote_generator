@@ -7,14 +7,25 @@ import time
 
 while 1:
     # fetch the quote
-    url = 'https://type.fit/api/quotes'
-    r = requests.get(url)
-    body = (r.json()) # if response type was set to JSON, then you'll automatically have a JSON response here...
-    max_size = len(body)
+    # url = 'https://type.fit/api/quotes'
+    # r = requests.get(url)
+    # body = (r.json()) # if response type was set to JSON, then you'll automatically have a JSON response here...
+    
+
+    import json
+    print("HERE")
+
+    import glob, random
+    filename = random.choice(glob.glob("sources/*.json")) #change dir name to whatever
+    print("chose filename = ", filename)
+    # # filename = 'sources/startup_quotes.json'
+    with open(filename, 'r') as f:
+        body = json.load(f)
+    max_size = len(body)-1
 
     # get a random index
     index = random.randint(0, max_size)
-    quote = body[index]['text']
+    quote = body[index]['quote']
 
     # split every 35 chars over new line
     max_line_len = 28
